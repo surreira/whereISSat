@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-leaflet",
-  "description": "A Gatsby starter with Leafet!",
-  "version": "0.2.0",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "name": "whereISSat",
+  "description": "A small learning experiment showing the location of the International Space Station",
+  "version": "0.1.0",
+  "author": "Abel Surreira <surreira@gmail.com>",
   "dependencies": {
     "gatsby": "^2.16.5",
     "gatsby-plugin-react-helmet": "^3.1.13",
@@ -37,8 +37,8 @@
   },
   "keywords": [
     "gatsby",
-    "sass",
     "leaflet",
+    "iss",
     "mapping",
     "maps"
   ],
@@ -64,12 +64,5 @@
       "yarn lint",
       "git add"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/colbyfayock/gatsby-starter-leaflet"
-  },
-  "bugs": {
-    "url": "https://github.com/colbyfayock/gatsby-starter-leaflet/issues"
   }
 }
