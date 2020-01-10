@@ -10,6 +10,14 @@ module.exports = {
         path: `${__dirname}/src/assets/images`
       }
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Comfortaa', 'Orbitron', 'Fira Mono', 'Raleway']
+        }
+      }
+    },
     'gatsby-plugin-react-leaflet'
   ]
 };
