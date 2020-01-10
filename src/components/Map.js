@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Map as BaseMap, TileLayer, ZoomControl } from 'react-leaflet';
+import { Map as BaseMap, TileLayer } from 'react-leaflet';
 
 import { useConfigureLeaflet, useMapServices, useRefEffect } from 'hooks';
 import { isDomAvailable } from 'lib/util';
@@ -44,10 +44,16 @@ const Map = ( props ) => {
 
   return (
     <div className={mapClassName}>
-      <BaseMap ref={mapRef} {...mapSettings}>
+      <BaseMap
+        ref={mapRef}
+        {...mapSettings}
+        style={{
+          height: window.innerHeight,
+          width: window.innerWidth < 975 ? window.innerWidth : window.innerWidth / 2
+        }}
+      >
         { children }
         { basemap && <TileLayer {...basemap} /> }
-        <ZoomControl position="bottomright" />
       </BaseMap>
     </div>
   );

@@ -1,80 +1,222 @@
 .page-home {
-
-  .map,
-  .map-base {
-    height: 50vh;
-  }
+  background: $theme-background;
+  color: $theme-silver;
 
   main {
     padding: 0;
-  }
-
-  .popup-gatsby {
     display: flex;
-    width: 36em;
-    padding: 1em;
-    border-radius: 1em;
+    align-items: stretch;
+    height: 100vh;
   }
 
-  .popup-gatsby-image {
-    display: flex;
-    align-items: center;
-    margin-right: 2em;
-  }
+  section {
+    width: 50vw;
+    flex-grow: 1;
 
-  .popup-gatsby-content {
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    align-content: center;
-    text-align: left;
-    padding-right: 1em;
-
-    h1 {
-      margin: 0 0 .2em;
-    }
-    p {
-      margin: 0 0 .5em;
-    }
-
-  }
-
-  .gatsby-astronaut {
-
-    overflow: hidden;
-    width: 10em;
-    height: 10em;
-    background-color: $gatsby-purple;
-    border-radius: 100%;
-    border: solid 6px $gatsby-purple;
-    margin: 0;
-
-    img {
+    @media (max-width: 975px) {
       width: 100%;
-      height: auto;
     }
 
+    &.banner {
+      background-image: url("https://d.newsweek.com/en/full/1098935/8-31-iss.jpg");
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: 50vw;
+      text-align: center;
+
+      @media (max-width: 975px) {
+        display: none;
+      }
+
+      h1 {
+        width: 66%;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 20px;
+        font-family: $font-header;
+        font-size: 4rem;
+        font-weight: bold;
+
+        &:hover {
+          color: $theme-gray;
+          cursor: pointer;
+
+          span {
+            font-style: normal;
+          }
+
+          span.feature {
+            text-shadow: 1vmin 1vmin 0 $theme-lightblue,
+              -1vmin -1vmin 0 $theme-purple;
+            transform: skew(0deg) rotate(0deg);
+          }
+        }
+
+        span {
+          display: block;
+          text-transform: uppercase;
+          font-style: italic;
+        }
+
+        span.feature {
+          color: $theme-darkblue;
+          letter-spacing: 1rem;
+          font-size: 10rem;
+          font-family: $font-feature;
+          text-shadow: 1vmin 1vmin 0 $theme-purple,
+            -1vmin -1vmin 0 $theme-lightblue;
+          transform: skew(-12deg) rotate(-12deg);
+        }
+
+        span.title-left {
+          text-align: left;
+          margin-bottom: -40px;
+        }
+
+        span.title-right {
+          text-align: right;
+          margin-top: -40px;
+          margin-right: 25px;
+        }
+      }
+    }
   }
 
+  .info-button {
+    z-index: 1002;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: $theme-silver;
+
+    &:hover {
+      color: $theme-gray;
+    }
+  }
+
+  .overlay {
+    opacity: 0.8;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $theme-darkblue;
+    position: absolute;
+    z-index: 1000;
+    font-family: $font-default;
+  }
+
+  .info {
+    z-index: 1001;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+  }
+
+  .container {
+    width: 66%;
+    margin: 0 auto;
+
+    h2 {
+      font-family: $font-title;
+      font-size: 5rem;
+      color: $theme-silver;
+      margin: 50px 0;
+      text-align: center;
+      background-color: $theme-purple;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      @media (max-width: 975px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-family: $font-header;
+      padding: 5px 15px;
+      background-color: $theme-purple;
+      font-size: 1.2rem;
+
+      a {
+        color: $theme-silver;
+      }
+
+      &.project-link {
+        text-align: center;
+        font-size: 2.5rem;
+        padding: 25px 15px 15px;
+
+        @media (max-width: 975px) {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 975px) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .map,
+  .map-base {
+    height: 100%;
+  }
 }
 
-.home-start {
+.icon {
+  & > div {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 100%;
+    border: 3px solid;
+    transition: all 0.2s;
+    position: relative;
+    width: 45px;
+    display: block;
+    height: 45px;
+    display: flex;
+    font-size: 25px;
+    line-height: 25px;
+    color: $theme-darkblue;
+    background-color: $theme-purple;
+    opacity: 0.8;
+  }
+}
 
-  padding-top: 4em;
-  padding-bottom: 4em;
+.custom-popup {
+  margin-bottom: 40px;
 
-  h2 {
-    margin-top: 0;
+  .leaflet-popup-content {
+    h3 {
+      color: $theme-darkblue;
+      font-size: 1.1rem;
+      font-weight: bold;
+      font-family: $font-title;
+      text-decoration: underline;
+      margin-top: 0;
+    }
+
+    p {
+      color: $theme-darkblue;
+      font-family: $font-label;
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+  }
+  .leaflet-popup-content-wrapper {
+    background-color: $theme-purple;
+    opacity: 0.9;
+    border: 3px solid;
+    border-color: $theme-darkblue;
   }
 
-  p {
-    margin-bottom: 1.2em;
+  .leaflet-popup-tip {
+    display: none;
   }
-
-  pre {
-    margin-bottom: 1.5em;
-  }
-
 }
