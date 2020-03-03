@@ -1,6 +1,6 @@
-// import React from "react";
 import L from 'leaflet';
 import { promiseToFlyTo } from './map';
+import { Polyline as WrappedPolyline } from 'leaflet-antimeridian/src/vector/Wrapped.Polyline.js';
 
 function popupContent( position ) {
   return `<h3><span>International</span> <span>Space</span> <span>Station</span></h3>
@@ -61,7 +61,7 @@ export async function findISS( map, zoom ) {
       )
     );
 
-    const issRoute = L.polyline(
+    const issRoute = new WrappedPolyline(
       JSON.parse( localStorage.getItem( 'iss' )).map(( position ) => {
         return new L.LatLng( position.lat, position.lng );
       }),
